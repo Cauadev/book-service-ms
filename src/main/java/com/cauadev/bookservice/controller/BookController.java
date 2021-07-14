@@ -34,12 +34,11 @@ public class BookController {
 			@PathVariable String currency) {
 		 Book book = repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Book not found"));
 		var port = environment.getProperty("local.server.port");
-		book.setEnviroment(port);
 		book.setCurrency(currency);
 		Cambio cambio = proxy.getCambio(book.getPrice(), "USD", currency);
+		book.setEnviroment("Book port: "+port+ " Cambio port: "+cambio.getEnviroment());
 		book.setPrice(cambio.getConvertedValue());
 		return book;
-		
 	}
 
 }
