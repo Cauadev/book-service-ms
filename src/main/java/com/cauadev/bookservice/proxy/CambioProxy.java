@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.cauadev.bookservice.response.Cambio;
 
 
-@FeignClient(name = "cambio-service", url = "localhost:8086")
+@FeignClient(name = "cambio-service")
 public interface CambioProxy {
 	
 	@GetMapping("/cambio/{amount}/{from}/{to}")
