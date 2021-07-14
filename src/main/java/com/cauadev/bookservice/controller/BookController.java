@@ -15,8 +15,19 @@ import com.cauadev.bookservice.proxy.CambioProxy;
 import com.cauadev.bookservice.repository.BookRepository;
 import com.cauadev.bookservice.response.Cambio;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+
+@Tag(name = "Book endpoint")
 @RestController
 @RequestMapping("/book")
+
+/**
+ * 
+ * @author CAUADEV
+ *
+ */
 public class BookController {
 	
 	@Autowired
@@ -28,6 +39,7 @@ public class BookController {
 	@Autowired
 	private BookRepository repository;
 	
+	@Operation(summary = "Find specific book by your id")
 	@GetMapping("/{id}/{currency}")
 	public Book findBook(
 			@PathVariable Long id,

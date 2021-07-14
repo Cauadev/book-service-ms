@@ -13,6 +13,8 @@ resilience4j:
         max-attempts: 6
         wait-duration: 1s
         enable-exponential-backoff: true
+        
+springdoc:  api-docs:    path: /doc
 
 spring:  application:    name: book-service
   datasource:
